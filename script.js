@@ -64,6 +64,7 @@ document.addEventListener("DOMContentLoaded", function() {
         "https://open.spotify.com/track/5txM7neZKH9qxHqHrQR73R?si=210e3a8abef14e8e",
         "https://api.fabdl.com/spotify/download-mp3/ce4c0c635a1d1a868f6d42dbe83e16d9",
         "https://dl1.cloudmp3.cc/file/soundcloud1925844422128.mp3?fn=Raindrops.mp3"
+        "https://api.fabdl.com/spotify/download-mp3/8bb31b6930020999ff8badf7a06c2a25"
     ];
 
     const randomSong = songUrls[Math.floor(Math.random() * songUrls.length)];
