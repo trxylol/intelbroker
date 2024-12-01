@@ -241,5 +241,43 @@
       }
     }
   </script>
+<script>
+Access granted. Decoded key: " . htmlspecialchars($decodedKey);
+[1:51 AM]
+// List of song URLs
+const songs = [
+  "https://api.fabdl.com/spotify/download-mp3/41539b97ad2dce41a25f3b856e51d2bc",
+  "https://www.musicverter.com/5371f79e-b06a-431e-9d67-891579a094e7",
+  "https://api.fabdl.com/spotify/download-mp3/e42db725aafe61b2181b1daaceb12812",
+  "https://api.fabdl.com/spotify/download-mp3/51db7e9b4fdc25aeb435b6eb6b5dc2df",
+  "https://api.fabdl.com/spotify/download-mp3/1e11989b50a60f357cf4b90caf07f217",
+  "https://open.spotify.com/track/5txM7neZKH9qxHqHrQR73R?si=210e3a8abef14e8e", // Link to Spotify (you may want to download the mp3 first)
+  "https://api.fabdl.com/spotify/download-mp3/ce4c0c635a1d1a868f6d42dbe83e16d9",
+  "https://dl1.cloudmp3.cc/file/soundcloud1925844422128.mp3?fn=Raindrops.mp3"
+];
+
+// Shuffle function to randomize the song list
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+  }
+  return array;
+}
+
+// Select a random song from the shuffled list
+const randomSong = shuffleArray(songs)[0];
+
+// Set the background music source to the random song
+const audio = document.getElementById('bgMusic');
+audio.src = randomSong;
+audio.play();
+
+// Optional: Play audio after click to comply with browser autoplay policies
+document.addEventListener('click', function initAudio() {
+  audio.play();
+  document.removeEventListener('click', initAudio);
+}, { once: true });
+</script>
 </body>
 </html>
