@@ -1,0 +1,144 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url('https://cdna.artstation.com/p/assets/images/images/028/102/058/original/pixel-jeff-matrix-s.gif?1593487263') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 1s ease-in-out;
+    cursor: pointer;
+}
+
+.splash-text {
+    color: #fff;
+    font-size: 3em;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #0ff;
+    }
+    to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #0ff, 0 0 40px #0ff;
+    }
+}
+
+.logo {
+    margin-bottom: 20px;
+    font-size: 3.5em;
+    font-weight: 700;
+    text-transform: lowercase;
+    letter-spacing: 2px;
+    display: flex;
+}
+
+.logo span {
+    animation: rainbow 8s linear infinite;
+}
+
+.logo span:nth-child(1) { animation-delay: 0s; }
+.logo span:nth-child(2) { animation-delay: 0.1s; }
+.logo span:nth-child(3) { animation-delay: 0.2s; }
+.logo span:nth-child(4) { animation-delay: 0.3s; }
+.logo span:nth-child(5) { animation-delay: 0.4s; }
+.logo span:nth-child(6) { animation-delay: 0.5s; }
+.logo span:nth-child(7) { animation-delay: 0.6s; }
+.logo span:nth-child(8) { animation-delay: 0.7s; }
+.logo span:nth-child(9) { animation-delay: 0.8s; }
+.logo span:nth-child(10) { animation-delay: 0.9s; }
+.logo span:nth-child(11) { animation-delay: 1.0s; }
+
+@keyframes rainbow {
+    0% { color: #ff0000; text-shadow: 0 0 10px #ff0000; }
+    14% { color: #ff7f00; text-shadow: 0 0 10px #ff7f00; }
+    28% { color: #ffff00; text-shadow: 0 0 10px #ffff00; }
+    42% { color: #00ff00; text-shadow: 0 0 10px #00ff00; }
+    57% { color: #0000ff; text-shadow: 0 0 10px #0000ff; }
+    71% { color: #4b0082; text-shadow: 0 0 10px #4b0082; }
+    85% { color: #9400d3; text-shadow: 0 0 10px #9400d3; }
+    100% { color: #ff0000; text-shadow: 0 0 10px #ff0000; }
+}
+
+.search-container {
+    position: relative;
+    width: 600px;
+    max-width: 90%;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(255, 105, 180, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.search-bar {
+    width: calc(100% - 65px);
+    padding: 12px 40px 12px 15px;
+    font-size: 1em;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(255, 105, 180, 0.1);
+    transition: all 0.3s ease;
+}
+
+.search-bar:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 30px rgba(255, 105, 180, 0.2);
+}
+
+.search-icon {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    width: 20px;
+    height: 20px;
+}
+
+.search-icon:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+
+::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.volume-control {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 1000;
+} 
