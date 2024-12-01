@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function() {
         "https://api.fabdl.com/spotify/download-mp3/41539b97ad2dce41a25f3b856e51d2bc",
         "blob:https://www.musicverter.com/5371f79e-b06a-431e-9d67-891579a094e7",
         "https://api.fabdl.com/spotify/download-mp3/e42db725aafe61b2181b1daaceb12812",
-        "https://api.fabdl.com/spotify/download-mp3/51db7e9b4fdc25aeb435b6eb6b5dc2df",
+        "https://api.fabdl.com/spotify/download-mp3/620f674fcc2a3e27e944f590f83b9e53",
         "https://api.fabdl.com/spotify/download-mp3/1e11989b50a60f357cf4b90caf07f217",
         "https://api.fabdl.com/spotify/download-mp3/ca3885b7053acfa1c2dfd2ccfcb5f3a5",
         "https://api.fabdl.com/spotify/download-mp3/ce4c0c635a1d1a868f6d42dbe83e16d9",
