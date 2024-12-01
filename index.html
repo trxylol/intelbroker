@@ -141,8 +141,74 @@
   </div>
 
   <audio id="bgMusic" loop>
-    <source src="https://dl1.cloudmp3.cc/file/soundcloud1261618552128.mp3?fn=After%20Dark.mp3" type="audio/mp3">
-  </audio>
+  <source src="https://dl1.cloudmp3.cc/file/soundcloud1261618552128.mp3?fn=After%20Dark.mp3" type="audio/mp3">
+</audio>
+<script>
+  // Array of song URLs for shuffling
+  const songs = [
+    "https://dl1.cloudmp3.cc/file/soundcloud1261618552128.mp3?fn=After%20Dark.mp3",
+    "https://api.fabdl.com/spotify/download-mp3/e42db725aafe61b2181b1daaceb12812",
+    "https://api.fabdl.com/spotify/download-mp3/41539b97ad2dce41a25f3b856e51d2bc"
+  ];
+
+  // Function to get a random song from the list
+  const getRandomSong = () => {
+    const randomIndex = Math.floor(Math.random() * songs.length);
+    return songs[randomIndex];
+  };
+
+  // Audio functionality
+  const audio = document.getElementById('bgMusic');
+  const volumeBtn = document.querySelector('.volume-control');
+  let isPlaying = false;
+
+  // Create a function to handle audio play
+  const playAudio = () => {
+    if (audio.paused) {
+      audio.src = getRandomSong(); // Set a random song on play
+      audio.volume = 0.5;
+      audio.play()
+        .then(() => {
+          isPlaying = true;
+          volumeBtn.innerHTML = `<path d="M14,3.23V5.29C16.89,6.15 19,8.83 19,12C19,15.17 16.89,17.84 14,18.7V20.77C18,19.86 21,16.28 21,12C21,7.72 18,4.14 14,3.23M16.5,12C16.5,10.23 15.5,8.71 14,7.97V16C15.5,15.29 16.5,13.76 16.5,12M3,9V15H7L12,20V4L7,9H3Z"/>`;
+        })
+        .catch(e => console.log("Play failed:", e));
+    }
+  };
+
+  // Initialize audio only after user interaction
+  document.addEventListener('click', function initAudio() {
+    playAudio();
+    document.removeEventListener('click', initAudio);
+  }, { once: true });
+
+  // Volume control click handler
+  volumeBtn.addEventListener('click', () => {
+    if (isPlaying) {
+      audio.pause();
+      volumeBtn.innerHTML = `<path d="M12,4L9.91,6.09L12,8.18M4.27,3L3,4.27L7.73,9H3V15H7L12,20V13.27L16.25,17.53C15.58,18.04 14.83,18.46 14,18.7V20.77C15.38,20.45 16.63,19.82 17.68,18.96L19.73,21L21,19.73L12,10.73M19,12C19,12.94 18.8,13.82 18.46,14.64L19.97,16.15C20.62,14.91 21,13.5 21,12C21,7.72 18,4.14 14,3.23V5.29C16.89,6.15 19,8.83 19,12M16.5,12C16.5,10.23 15.5,8.71 14,7.97V10.18L16.45,12.63C16.5,12.43 16.5,12.21 16.5,12Z"/>`;
+      isPlaying = false;
+    } else {
+      playAudio();
+    }
+  });
+
+  // Search functionality
+  document.querySelector('.search-bar').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+      performSearch();
+    }
+  });
+
+  document.querySelector('.search-icon').addEventListener('click', performSearch);
+
+  function performSearch() {
+    const searchTerm = document.querySelector('.search-bar').value;
+    if (searchTerm.trim() !== '') {
+      console.log('Searching for:', searchTerm);
+    }
+  }
+</script>
 
   <!-- Fixed SVG for volume control -->
   <svg class="volume-control" viewBox="0 0 24 24" fill="#fff" aria-label="Volume control">
