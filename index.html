@@ -1,0 +1,205 @@
+<html><head><base href="." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>intelbroker</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('https://cdna.artstation.com/p/assets/images/images/028/102/058/original/pixel-jeff-matrix-s.gif?1593487263') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo {
+      margin-bottom: 20px;
+      font-size: 3.5em;
+      font-weight: 700;
+      text-transform: lowercase;
+      letter-spacing: 2px;
+      display: flex;
+    }
+
+    .logo span {
+      animation: rainbow 8s linear infinite;
+    }
+
+    .logo span:nth-child(1) { animation-delay: 0s; }
+    .logo span:nth-child(2) { animation-delay: 0.1s; }
+    .logo span:nth-child(3) { animation-delay: 0.2s; }
+    .logo span:nth-child(4) { animation-delay: 0.3s; }
+    .logo span:nth-child(5) { animation-delay: 0.4s; }
+    .logo span:nth-child(6) { animation-delay: 0.5s; }
+    .logo span:nth-child(7) { animation-delay: 0.6s; }
+    .logo span:nth-child(8) { animation-delay: 0.7s; }
+    .logo span:nth-child(9) { animation-delay: 0.8s; }
+    .logo span:nth-child(10) { animation-delay: 0.9s; }
+
+    @keyframes rainbow {
+      0% { color: #ff0000; text-shadow: 0 0 10px #ff0000; }
+      14% { color: #ff7f00; text-shadow: 0 0 10px #ff7f00; }
+      28% { color: #ffff00; text-shadow: 0 0 10px #ffff00; }
+      42% { color: #00ff00; text-shadow: 0 0 10px #00ff00; }
+      57% { color: #0000ff; text-shadow: 0 0 10px #0000ff; }
+      71% { color: #4b0082; text-shadow: 0 0 10px #4b0082; }
+      85% { color: #9400d3; text-shadow: 0 0 10px #9400d3; }
+      100% { color: #ff0000; text-shadow: 0 0 10px #ff0000; }
+    }
+
+    .search-container {
+      position: relative;
+      width: 600px;
+      max-width: 90%;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 20px rgba(255, 105, 180, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .search-bar {
+      width: calc(100% - 65px);
+      padding: 12px 40px 12px 15px;
+      font-size: 1em;
+      border: none;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 20px rgba(255, 105, 180, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .search-bar:focus {
+      outline: none;
+      background: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 0 30px rgba(255, 105, 180, 0.2);
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 30px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      width: 20px;
+      height: 20px;
+    }
+
+    .search-icon:hover {
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    ::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .volume-control {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+  <div class="search-container">
+    <div class="logo">
+      <span>i</span>
+      <span>n</span>
+      <span>t</span>
+      <span>e</span>
+      <span>l</span>
+      <span>b</span>
+      <span>r</span>
+      <span>o</span>
+      <span>k</span>
+      <span>e</span>
+      <span>r</span>
+    </div>
+    <input type="text" class="search-bar" placeholder="Welcome to intelbroker be the one or the zero..">
+    <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="11" cy="11" r="8"></circle>
+      <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+    </svg>
+  </div>
+
+  <audio id="bgMusic" loop>
+    <source src="https://files.catbox.moe/44v09k.mp3" type="audio/mp3">
+  </audio>
+
+  <svg class="volume-control" viewBox="0 0 24 24" fill="#fff">
+    <path d="M14,3.23V5.29C16.89,6.15 19,8.83 19,12C19,15.17 16.89,17.84 14,18.7V20.77C18,19.86 21,16.28 21,12C21,7.72 18,4.14 14,3.23M16.5,12C16.5,10.23 15.5,8.71 14,7.97V16C15.5,15.29 16.5,13.76 16.5,12M3,9V15H7L12,20V4L7,9H3Z"/>
+  </svg>
+
+  <script>
+    // Audio functionality
+    const audio = document.getElementById('bgMusic');
+    const volumeBtn = document.querySelector('.volume-control');
+    let isPlaying = false;
+
+    // Create a function to handle audio play
+    const playAudio = () => {
+      // Only attempt to play if audio is currently paused
+      if (audio.paused) {
+        audio.volume = 0.5; // Set a moderate initial volume
+        audio.play()
+          .then(() => {
+            isPlaying = true;
+            volumeBtn.innerHTML = `<path d="M14,3.23V5.29C16.89,6.15 19,8.83 19,12C19,15.17 16.89,17.84 14,18.7V20.77C18,19.86 21,16.28 21,12C21,7.72 18,4.14 14,3.23M16.5,12C16.5,10.23 15.5,8.71 14,7.97V16C15.5,15.29 16.5,13.76 16.5,12M3,9V15H7L12,20V4L7,9H3Z"/>`;
+          })
+          .catch(e => console.log("Play failed:", e));
+      }
+    };
+
+    // Initialize audio only after user interaction
+    document.addEventListener('click', function initAudio() {
+      playAudio();
+      document.removeEventListener('click', initAudio);
+    }, { once: true });
+
+    // Volume control click handler
+    volumeBtn.addEventListener('click', () => {
+      if (isPlaying) {
+        audio.pause();
+        volumeBtn.innerHTML = `<path d="M12,4L9.91,6.09L12,8.18M4.27,3L3,4.27L7.73,9H3V15H7L12,20V13.27L16.25,17.53C15.58,18.04 14.83,18.46 14,18.7V20.77C15.38,20.45 16.63,19.82 17.68,18.96L19.73,21L21,19.73L12,10.73M19,12C19,12.94 18.8,13.82 18.46,14.64L19.97,16.15C20.62,14.91 21,13.5 21,12C21,7.72 18,4.14 14,3.23V5.29C16.89,6.15 19,8.83 19,12M16.5,12C16.5,10.23 15.5,8.71 14,7.97V10.18L16.45,12.63C16.5,12.43 16.5,12.21 16.5,12Z"/>`;
+        isPlaying = false;
+      } else {
+        playAudio();
+      }
+    });
+
+    // Search functionality
+    document.querySelector('.search-bar').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        performSearch();
+      }
+    });
+
+    document.querySelector('.search-icon').addEventListener('click', performSearch);
+
+    function performSearch() {
+      const searchTerm = document.querySelector('.search-bar').value;
+      if (searchTerm.trim() !== '') {
+        console.log('Searching for:', searchTerm);
+      }
+    }
+  </script>
+<audio controls autoplay style="display: none;">
+  <source src="https://soundcloud.com/mrkitty_sc/after-dark?si=9a9a3155295544b4bd3e22af20cbe935&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" type="audio/mpeg">
+</audio>
+</body>
+</html>
