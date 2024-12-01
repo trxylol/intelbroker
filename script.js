@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const audioElement = document.getElementById('bgMusic');
     const songUrls = [
         "https://api.fabdl.com/spotify/download-mp3/41539b97ad2dce41a25f3b856e51d2bc",
-        "https://www.musicverter.com/5371f79e-b06a-431e-9d67-891579a094e7",
+        "blob:https://www.musicverter.com/5371f79e-b06a-431e-9d67-891579a094e7",
         "https://api.fabdl.com/spotify/download-mp3/e42db725aafe61b2181b1daaceb12812",
         "https://api.fabdl.com/spotify/download-mp3/51db7e9b4fdc25aeb435b6eb6b5dc2df",
         "https://api.fabdl.com/spotify/download-mp3/1e11989b50a60f357cf4b90caf07f217",
