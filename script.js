@@ -64,7 +64,8 @@ document.addEventListener("DOMContentLoaded", function() {
         "https://api.fabdl.com/spotify/download-mp3/ca3885b7053acfa1c2dfd2ccfcb5f3a5",
         "https://api.fabdl.com/spotify/download-mp3/ce4c0c635a1d1a868f6d42dbe83e16d9",
         "https://dl1.cloudmp3.cc/file/soundcloud1925844422128.mp3?fn=Raindrops.mp3",
-        "https://api.fabdl.com/spotify/download-mp3/8bb31b6930020999ff8badf7a06c2a25"
+        "https://api.fabdl.com/spotify/download-mp3/8bb31b6930020999ff8badf7a06c2a25",
+        "https://api.fabdl.com/spotify/download-mp3/b4ef58a1924de74f4d5cf0562cdcfa21"
     ];
 
     const randomSong = songUrls[Math.floor(Math.random() * songUrls.length)];
